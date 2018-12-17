@@ -24,6 +24,10 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paint-5" translatesAutoresizingMaskIntoConstraints="NO" id="5Q5-zg-Bs7">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-ZN-gnz">
+                    <rect key="frame" x="49.5" y="110" width="276" height="107"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concentration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJU-KP-nqS">
                     <rect key="frame" x="69.5" y="120" width="236" height="49.5"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="36"/>
@@ -58,11 +62,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="gyn-ZN-gnz" firstAttribute="leading" secondItem="zJU-KP-nqS" secondAttribute="leading" constant="-20" id="298-TO-M5o"/>
                 <constraint firstItem="1z7-dL-bSc" firstAttribute="trailing" secondItem="Hl8-bn-CwN" secondAttribute="trailing" constant="25" id="DCX-aq-WBb"/>
                 <constraint firstItem="1z7-dL-bSc" firstAttribute="top" secondItem="l62-6Z-WEX" secondAttribute="top" constant="-20" id="F8A-a4-j1Q"/>
                 <constraint firstItem="1ug-yr-3Q1" firstAttribute="top" secondItem="zJU-KP-nqS" secondAttribute="bottom" constant="4" id="G2e-IN-c0K"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="H4e-uB-n42" secondAttribute="bottom" constant="120" id="Gc6-sO-YNe"/>
+                <constraint firstItem="gyn-ZN-gnz" firstAttribute="top" secondItem="zJU-KP-nqS" secondAttribute="top" constant="-10" id="IOU-xW-O0p"/>
                 <constraint firstItem="zJU-KP-nqS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="IeP-do-sb0"/>
+                <constraint firstItem="gyn-ZN-gnz" firstAttribute="bottom" secondItem="1ug-yr-3Q1" secondAttribute="bottom" constant="20" id="JIh-nZ-uLq"/>
                 <constraint firstItem="H4e-uB-n42" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L0U-bJ-e3N"/>
                 <constraint firstItem="zJU-KP-nqS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LuJ-O9-lQl"/>
                 <constraint firstItem="5Q5-zg-Bs7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="T2I-0M-xzV"/>
@@ -76,6 +83,7 @@
                 <constraint firstItem="5Q5-zg-Bs7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="oPn-0P-6Yp"/>
                 <constraint firstItem="Hl8-bn-CwN" firstAttribute="centerX" secondItem="H4e-uB-n42" secondAttribute="centerX" id="qee-kI-6SA"/>
                 <constraint firstItem="1z7-dL-bSc" firstAttribute="leading" secondItem="Hl8-bn-CwN" secondAttribute="leading" constant="-25" id="xLl-co-8Vy"/>
+                <constraint firstItem="gyn-ZN-gnz" firstAttribute="trailing" secondItem="zJU-KP-nqS" secondAttribute="trailing" constant="20" id="xSD-2Y-gWg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>

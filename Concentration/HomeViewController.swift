@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+   @IBOutlet var titleRoundedBackgroundView: UIView!
    @IBOutlet var buttonRoundedBackgroundView: UIView!
    
    override func viewDidLoad() {
