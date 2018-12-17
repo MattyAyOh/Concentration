@@ -15,10 +15,16 @@ class HomeViewController: UIViewController {
    }
 
    @IBAction func newGamePressed(_ sender: Any) {
-      let secondViewController = GameSelectViewController(nibName: nil, bundle: nil)
-      self.present(secondViewController, animated: true, completion: nil)
+      let gameSelectVC = GameSelectViewController(nibName: nil, bundle: nil)
+      self.present(gameSelectVC, animated: true, completion: nil)
    }
    
+   @IBAction func loadGamePressed(_ sender: Any) {
+   }
    
+   @IBAction func historyPressed(_ sender: Any) {
+      let historyVC = HistoryViewController(nibName: nil, bundle: nil)
+      self.present(historyVC, animated: true, completion: nil)
+   }
 }
 
