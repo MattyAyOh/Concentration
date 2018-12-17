@@ -14,6 +14,11 @@ class HomeViewController: UIViewController {
       super.viewDidLoad()
    }
 
+   @IBAction func newGamePressed(_ sender: Any) {
+      let secondViewController = GameSelectViewController(nibName: nil, bundle: nil)
+      self.present(secondViewController, animated: true, completion: nil)
+   }
+   
    
 }
 

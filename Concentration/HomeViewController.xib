@@ -47,6 +47,9 @@
                     <rect key="frame" x="126.5" y="404" width="122" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <state key="normal" title="New Game"/>
+                    <connections>
+                        <action selector="newGamePressed:" destination="-1" eventType="touchUpInside" id="uBq-uB-RtV"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hl8-bn-CwN">
                     <rect key="frame" x="124" y="455" width="127" height="41"/>
