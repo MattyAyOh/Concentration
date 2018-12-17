@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Concentration" customModuleProvider="target">
             <connections>
-                <outlet property="buttonRoundedBackgroundView" destination="1z7-dL-bSc" id="Nac-g0-ifa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GFd-md-dBo"/>
             </connections>
         </placeholder>
@@ -24,7 +23,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paint-5" translatesAutoresizingMaskIntoConstraints="NO" id="5Q5-zg-Bs7">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-ZN-gnz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-ZN-gnz" customClass="RoundedBackgroundView" customModule="Concentration" customModuleProvider="target">
                     <rect key="frame" x="49.5" y="110" width="276" height="107"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
@@ -40,7 +39,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z7-dL-bSc">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z7-dL-bSc" customClass="RoundedBackgroundView" customModule="Concentration" customModuleProvider="target">
                     <rect key="frame" x="99" y="384" width="177" height="183"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
