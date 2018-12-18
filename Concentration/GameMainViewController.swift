@@ -26,21 +26,9 @@ class GameMainViewController: UIViewController {
    
    @IBOutlet var mainGrid: ConcentrationGridView!
    override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
       
-      mainGrid.addTiles(50)
-        // Do any additional setup after loading the view.
+      guard let m = self.model else {return}
+      mainGrid.loadFromModel(m)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

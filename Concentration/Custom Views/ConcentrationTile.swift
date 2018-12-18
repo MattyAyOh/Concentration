@@ -9,10 +9,8 @@
 import UIKit
 
 class ConcentrationTile: UIView {
-
-   var pairNumber: Int
-   var flippedImage: UIImage?
-
+   private var flippedImage: UIImage?
+   private var pairNumber: Int
    private var flipped = false
    let imageView: UIImageView
    let flippedNumberLabel: UILabel
@@ -49,6 +47,12 @@ class ConcentrationTile: UIView {
    
    required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
+   }
+   
+   func updateTile(withNewNum newNum:Int, andNewImage newImage:UIImage?) {
+      self.flippedImage = newImage
+      self.pairNumber = newNum
+      self.flippedNumberLabel.text = String(newNum)
    }
    
    @objc func tileTapped(_ sender:UITapGestureRecognizer) {

@@ -9,9 +9,18 @@
 import UIKit
 
 class ConcentrationGridView: UIView {
-   
    var tiles: [ConcentrationTile] = []
-   func addTiles(_ numTiles: Int) {
+   
+   func loadFromModel(_ model:ConcentrationModel) {
+      addTiles(model.numTiles())
+      for i in 0..<tiles.count {
+         let pairNum = model.tilePlacementInGrid[i]
+         guard let tileImage = model.pairNumToImage[pairNum] else { fatalError("PairNum to Image should have key/value for tile num") }
+         tiles[i].updateTile(withNewNum: pairNum, andNewImage: tileImage)
+      }
+   }
+   
+   private func addTiles(_ numTiles: Int) {
       tiles.removeAll()
       let sideLength = determineTileSideSize(forNumTiles: Double(numTiles))
       
@@ -33,7 +42,6 @@ class ConcentrationGridView: UIView {
          }
          rowNum += 1
       }
-
    }
    
    fileprivate func determineTileSideSize(forNumTiles N: Double) -> Double {
