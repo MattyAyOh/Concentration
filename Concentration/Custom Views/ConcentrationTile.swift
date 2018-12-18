@@ -54,13 +54,15 @@ class ConcentrationTile: UIView {
       UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
          if self.flipped {
             self.transform = CGAffineTransform(scaleX: 1, y: -1)
-            self.backgroundColor = UIColor.red
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.backgroundColor = UIColor.darkGray
             self.flippedNumberLabel.isHidden = true
             self.imageView.isHidden = false
             self.imageView.image = self.unflippedImage
          } else {
+            self.transform = CGAffineTransform(scaleX: 1, y: -1)
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.backgroundColor = UIColor.green
+            self.backgroundColor = UIColor.white
             if self.flippedImage != nil {
                self.imageView.image = self.flippedImage
             } else {
