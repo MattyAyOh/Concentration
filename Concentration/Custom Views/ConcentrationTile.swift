@@ -10,10 +10,11 @@ import UIKit
 
 class ConcentrationTile: UIView {
 
-   let pairNumber: Int
-   var flipped = false
+   var pairNumber: Int
+   var flippedImage: UIImage?
+
+   private var flipped = false
    let imageView: UIImageView
-   let flippedImage: UIImage?
    let flippedNumberLabel: UILabel
    let unflippedImage = UIImage(imageLiteralResourceName: "Question")
    

@@ -21,7 +21,8 @@ class GameSelectViewController: UIViewController {
    }
    
    @IBAction func startGamePressed(_ sender: Any) {
-      let gameMainVC = GameMainViewController(nibName: nil, bundle: nil)
+      let model = ConcentrationModel(numPairs: 20, images: [])
+      let gameMainVC = GameMainViewController(model: model)
       self.present(gameMainVC, animated: true, completion: nil)
    }
 

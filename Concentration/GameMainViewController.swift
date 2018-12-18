@@ -10,6 +10,20 @@ import UIKit
 
 class GameMainViewController: UIViewController {
 
+   let model:ConcentrationModel?
+   init(model: ConcentrationModel?) {
+      self.model = model
+      super.init(nibName: nil, bundle: nil)
+   }
+   
+   override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+      fatalError("Need to call init w/ Concentration Model")
+   }
+   
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+   
    @IBOutlet var mainGrid: ConcentrationGridView!
    override func viewDidLoad() {
         super.viewDidLoad()

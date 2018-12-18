@@ -10,7 +10,9 @@ import UIKit
 
 class ConcentrationGridView: UIView {
    
+   var tiles: [ConcentrationTile] = []
    func addTiles(_ numTiles: Int) {
+      tiles.removeAll()
       let sideLength = determineTileSideSize(forNumTiles: Double(numTiles))
       
       let tilesInRow = Int(Double(self.frame.width)/sideLength)
@@ -21,9 +23,13 @@ class ConcentrationGridView: UIView {
          for colNum in 0..<tilesInRow {
             let yOffset = Double(rowNum)*sideLength
             let xOffset = Double(colNum)*sideLength
-            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength), pairNumber: tilesCreated, image:nil)
+            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength))
             self.addSubview(newTile)
+            tiles.append(newTile)
             tilesCreated += 1
+            if tilesCreated == numTiles {
+               break
+            }
          }
          rowNum += 1
       }
