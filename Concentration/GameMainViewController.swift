@@ -14,7 +14,7 @@ class GameMainViewController: UIViewController {
    override func viewDidLoad() {
         super.viewDidLoad()
       
-      mainGrid.addTiles(10)
+      mainGrid.addTiles(50)
         // Do any additional setup after loading the view.
     }
 
