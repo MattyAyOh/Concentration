@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A7899CD21C78DA100D9EF4C /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */; };
+		3A7899CF21C7921B00D9EF4C /* ConcentrationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */; };
 		3AC9BE0021C7643000858240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9BDFF21C7643000858240 /* AppDelegate.swift */; };
 		3AC9BE0221C7643000858240 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9BE0121C7643000858240 /* HomeViewController.swift */; };
 		3AC9BE0721C7643100858240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC9BE0621C7643100858240 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
+		3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGridView.swift; sourceTree = "<group>"; };
 		3AC9BDFC21C7643000858240 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC9BDFF21C7643000858240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AC9BE0121C7643000858240 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */,
+				3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				3AC9BE2B21C7697300858240 /* HistoryViewController.swift in Sources */,
 				3A7899CD21C78DA100D9EF4C /* RoundedBackgroundView.swift in Sources */,
 				3AC9BE2121C7664F00858240 /* GameSelectViewController.swift in Sources */,
+				3A7899CF21C7921B00D9EF4C /* ConcentrationGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

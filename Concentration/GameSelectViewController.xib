@@ -58,6 +58,9 @@
                     <rect key="frame" x="103" y="479" width="169" height="51"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                     <state key="normal" title="Start Game"/>
+                    <connections>
+                        <action selector="startGamePressed:" destination="-1" eventType="touchUpInside" id="ddr-GH-wbB"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Aa-Ac-8og">
                     <rect key="frame" x="20" y="30" width="56" height="41"/>

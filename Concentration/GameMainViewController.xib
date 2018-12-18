@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameMainViewController" customModule="Concentration" customModuleProvider="target">
             <connections>
+                <outlet property="mainGrid" destination="rMu-Lf-NGV" id="bZN-Bq-XRh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="ylK-ph-Htv"/>
             </connections>
         </placeholder>
@@ -19,6 +20,13 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMu-Lf-NGV" customClass="ConcentrationGridView" customModule="Concentration" customModuleProvider="target">
+                    <rect key="frame" x="57" y="104" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

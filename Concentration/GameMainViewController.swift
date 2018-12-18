@@ -10,9 +10,11 @@ import UIKit
 
 class GameMainViewController: UIViewController {
 
-    override func viewDidLoad() {
+   @IBOutlet var mainGrid: ConcentrationGridView!
+   override func viewDidLoad() {
         super.viewDidLoad()
-
+      
+      mainGrid.addTiles(10)
         // Do any additional setup after loading the view.
     }
 
