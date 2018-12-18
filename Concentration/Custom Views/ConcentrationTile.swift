@@ -11,12 +11,19 @@ import UIKit
 class ConcentrationTile: UIView {
 
    var flipped = false
+   let imageView: UIImageView
+   let unflippedImage = UIImage(imageLiteralResourceName: "Question")
    
    override init(frame: CGRect) {
+      self.imageView = UIImageView(frame: frame.insetBy(dx: 3.0, dy: 3.0))
+      self.imageView.image = self.unflippedImage
       super.init(frame: frame)
+      self.addSubview(self.imageView)
       let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.tileTapped (_:)))
       self.addGestureRecognizer(gesture)
-      self.backgroundColor = UIColor.red
+      self.backgroundColor = UIColor.darkGray
+      self.bounds = self.frame.insetBy(dx: 1.0, dy: 1.0)
+      self.layer.cornerRadius = 5.0
    }
    
    required init?(coder aDecoder: NSCoder) {
