@@ -21,7 +21,7 @@ class ConcentrationGridView: UIView {
          for colNum in 0..<tilesInRow {
             let yOffset = Double(rowNum)*sideLength
             let xOffset = Double(colNum)*sideLength
-            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength))
+            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength), pairNumber: tilesCreated, image:nil)
             self.addSubview(newTile)
             tilesCreated += 1
          }
