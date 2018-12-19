@@ -34,6 +34,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
    }
    
    override func viewDidLoad() {
+      loadViews()
+   }
+   
+   private func loadViews() {
       historyList = HistoryManager.loadFromCache() ?? [HistoryModel]()
       
       var totalTime:Int = 0
@@ -55,5 +59,18 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
 
    @IBAction func backPressed(_ sender: Any) {
       self.dismiss(animated: true, completion: nil)
+   }
+   @IBAction func clearHistoryPressed(_ sender: Any) {
+      let alert = UIAlertController(title: "Clearing History", message: "Are you sure?  This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
+      
+      alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+         HistoryManager.clearHistory()
+         self.loadViews()
+      }))
+      
+      alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+         return
+      }))
+      present(alert, animated: true, completion: nil)
    }
 }

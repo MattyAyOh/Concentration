@@ -31,4 +31,8 @@ struct HistoryManager {
          let decoded = try? JSONDecoder().decode([HistoryModel].self, from: data) else { return nil }
       return decoded
    }
+   
+   static func clearHistory() {
+      try? FileManager.default.removeItem(atPath: historyDataURL.path)
+   }
 }

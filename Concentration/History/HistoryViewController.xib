@@ -101,6 +101,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-St-tdE">
+                    <rect key="frame" x="260" y="627" width="107" height="32"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                    <size key="titleShadowOffset" width="1" height="1"/>
+                    <state key="normal" title="Clear History">
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clearHistoryPressed:" destination="-1" eventType="touchUpInside" id="65v-zh-Wk8"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -125,9 +136,11 @@
                 <constraint firstItem="0gJ-I2-Jzi" firstAttribute="top" secondItem="63I-tn-H8y" secondAttribute="top" constant="-10" id="QP6-eb-XUl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="77S-Ko-PI2" secondAttribute="bottom" id="ULX-h7-G1d"/>
                 <constraint firstItem="4Ow-dB-YhR" firstAttribute="top" secondItem="0gJ-I2-Jzi" secondAttribute="bottom" constant="20" id="Wl9-dA-kRL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="F8T-St-tdE" secondAttribute="trailing" constant="8" id="aPD-Bf-77s"/>
                 <constraint firstItem="xac-XZ-t3h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="cCq-Vg-qGR"/>
                 <constraint firstItem="fEk-g8-c0d" firstAttribute="leading" secondItem="gT9-Ia-aqc" secondAttribute="trailing" constant="8" symbolic="YES" id="gLX-q3-OIB"/>
                 <constraint firstItem="77S-Ko-PI2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gn6-c0-8Ib"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F8T-St-tdE" secondAttribute="bottom" constant="8" id="iYn-QM-U3M"/>
                 <constraint firstItem="0gJ-I2-Jzi" firstAttribute="leading" secondItem="63I-tn-H8y" secondAttribute="leading" constant="-20" id="kIk-Z6-kTY"/>
                 <constraint firstItem="OQQ-k3-8K0" firstAttribute="leading" secondItem="103-vi-rfG" secondAttribute="trailing" constant="8" symbolic="YES" id="n8n-G8-Czv"/>
                 <constraint firstItem="77S-Ko-PI2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nki-7t-rFH"/>
