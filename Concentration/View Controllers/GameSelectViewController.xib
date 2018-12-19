@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameSelectViewController" customModule="Concentration" customModuleProvider="target">
             <connections>
+                <outlet property="numPairsTextField" destination="usH-fV-mgq" id="l3D-rm-h9x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,16 +44,25 @@
                     <rect key="frame" x="160.5" y="160" width="54" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <state key="normal" title="Easy"/>
+                    <connections>
+                        <action selector="easyPressed:" destination="-1" eventType="touchUpInside" id="1SU-nV-oGq"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaP-6a-lo5">
                     <rect key="frame" x="142" y="211" width="91" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <state key="normal" title="Medium"/>
+                    <connections>
+                        <action selector="mediumPressed:" destination="-1" eventType="touchUpInside" id="KsX-KR-fMB"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnT-Nf-eZQ">
                     <rect key="frame" x="160" y="262" width="55" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <state key="normal" title="Hard"/>
+                    <connections>
+                        <action selector="hardPressed:" destination="-1" eventType="touchUpInside" id="9Cl-nu-tYA"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvh-gs-213">
                     <rect key="frame" x="103" y="479" width="169" height="51"/>

@@ -9,6 +9,7 @@
 import UIKit
 
 struct K {
+   static let defaultNumPairs = 10
    static let pairNumToImage: [Int:UIImage?] = [
       0:UIImage(imageLiteralResourceName: "Apple")
    ]

@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
          let gameExistsAlert = UIAlertController(title: "Game In Progress", message: "Saved game will be lost. Start a new game?", preferredStyle: UIAlertController.Style.alert)
          
          gameExistsAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            GameManager.emptyCache()
             loadGameSelectVC()
          }))
          
