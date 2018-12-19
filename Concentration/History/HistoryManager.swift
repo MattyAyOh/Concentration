@@ -14,10 +14,10 @@ struct HistoryManager {
    static func addWinToHistory(_ history:HistoryModel) {
       var allHistory:[HistoryModel] = loadFromCache() ?? [HistoryModel]()
       allHistory.insert(history, at: 0)
-      cache(model: allHistory)
+      saveToCache(model: allHistory)
    }
    
-   static func cache(model:[HistoryModel]) {
+   static func saveToCache(model:[HistoryModel]) {
       let encoded = try! JSONEncoder().encode(model)
       do {
          try encoded.write(to: historyDataURL, options: [.atomicWrite])

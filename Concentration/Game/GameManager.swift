@@ -37,7 +37,7 @@ struct GameManager {
       })
    }
    
-   static func cache(model:GameModel) {
+   static func saveToCache(model:GameModel) {
       let encoded = try! JSONEncoder().encode(model)
       do {
          try encoded.write(to: cachedGameURL, options: [.atomicWrite])

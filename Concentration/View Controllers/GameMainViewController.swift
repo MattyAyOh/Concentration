@@ -102,7 +102,7 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       pauseTimer()
       
       if let m = backingModel {
-         GameManager.cache(model: m)
+         GameManager.saveToCache(model: m)
       }
    }
    
