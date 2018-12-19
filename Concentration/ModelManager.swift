@@ -30,4 +30,8 @@ struct ModelManager {
       let fileManager = FileManager.default
       return fileManager.fileExists(atPath: cacheDirectory.path)
    }
+   
+   static func emptyCache() {
+      FileManager.default.removeItem(at: cacheDirectory)
+   }
 }

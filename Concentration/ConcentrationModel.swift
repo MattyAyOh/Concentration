@@ -31,6 +31,10 @@ struct ConcentrationModel:Codable {
       return tilePlacementInGrid.count
    }
    
+   func numPairs() -> Int {
+      return tilePlacementInGrid.count/2
+   }
+   
    //MARK: - Codable
    
    enum CodingKeys: String, CodingKey {

@@ -78,6 +78,16 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    
    func pairFound(_ pairNum: Int) {
       backingModel?.completedTilePairs.insert(pairNum)
+      
+      if backingModel?.completedTilePairs.count == backingModel?.numPairs() {
+         let finishedGameAlert = UIAlertController(title: "You Win!", message: "Game will be stored in your History.", preferredStyle: UIAlertController.Style.alert)
+         finishedGameAlert.addAction(UIAlertAction(title: "Ok", style: .default))
+         
+         present(finishedGameAlert, animated: true, completion: {
+            ModelManager.emptyCache()
+            self.goHome()
+         })
+      }
    }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +105,10 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    }
    
    @IBAction func pausePressed(_ sender: Any) {
+      goHome()
+   }
+   
+   private func goHome() {
       if self.presentingViewController is HomeViewController {
          self.presentingViewController?.dismiss(animated: true, completion: nil)
       } else {
