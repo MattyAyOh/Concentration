@@ -119,6 +119,8 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    }
    
    @IBAction func savePressed(_ sender: Any) {
+      guard let model = self.backingModel else { fatalError("No backing model found") }
+      GameManager.uploadGameModel(model: model)
    }
    
 }
