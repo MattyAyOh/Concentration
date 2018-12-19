@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ConcentrationGridView: UIView {
+class ConcentrationGridView: UIView, TileDelegate {
    var tiles: [ConcentrationTile] = []
+   var firstChosenTile:ConcentrationTile?
+   
+   var backingModel:ConcentrationModel?
+   var lockFlipping = false
    
    func loadFromModel(_ model:ConcentrationModel) {
       addTiles(model.numTiles())
@@ -18,6 +22,7 @@ class ConcentrationGridView: UIView {
          guard let tileImage = model.pairNumToImage[pairNum] else { fatalError("PairNum to Image should have key/value for tile num") }
          tiles[i].updateTile(withNewNum: pairNum, andNewImage: tileImage)
       }
+      backingModel = model
    }
    
    private func addTiles(_ numTiles: Int) {
@@ -32,7 +37,7 @@ class ConcentrationGridView: UIView {
          for colNum in 0..<tilesInRow {
             let yOffset = Double(rowNum)*sideLength
             let xOffset = Double(colNum)*sideLength
-            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength))
+            let newTile = ConcentrationTile(frame: CGRect.init(x: xOffset, y: yOffset, width: sideLength, height: sideLength), delegate:self)
             self.addSubview(newTile)
             tiles.append(newTile)
             tilesCreated += 1
@@ -57,5 +62,25 @@ class ConcentrationGridView: UIView {
          j += 1
       }
       return max(width/i, height/j)
+   }
+
+   func tileFlipped(_ tile: ConcentrationTile) {
+      if firstChosenTile == nil {
+         firstChosenTile = tile
+      } else {
+         if firstChosenTile?.pairNumber == tile.pairNumber {
+            backingModel?.completedTilePairs.insert(tile.pairNumber)
+            firstChosenTile = nil
+         } else {
+            lockFlipping = true
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+               tile.unflipTile()
+               self.firstChosenTile?.unflipTile()
+               self.firstChosenTile = nil
+               self.lockFlipping = false
+            }
+         }
+         
+      }
    }
 }

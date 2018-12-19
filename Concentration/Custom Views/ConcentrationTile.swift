@@ -8,17 +8,27 @@
 
 import UIKit
 
+protocol TileDelegate: NSObjectProtocol {
+   var lockFlipping:Bool {get set}
+   func tileFlipped(_ tile:ConcentrationTile)
+}
+
 class ConcentrationTile: UIView {
+   weak var delegate: TileDelegate?
    private var flippedImage: UIImage?
-   private var pairNumber: Int
+   private(set) var pairNumber: Int
    private var flipped = false
    let imageView: UIImageView
    let flippedNumberLabel: UILabel
    let unflippedImage = UIImage(imageLiteralResourceName: "Question")
    
-   override convenience init(frame: CGRect)
-   {
+   override convenience init(frame: CGRect) {
       self.init(frame:frame, pairNumber: 0, image: nil)
+   }
+   
+   convenience init(frame:CGRect, delegate:TileDelegate?) {
+      self.init(frame:frame, pairNumber: 0, image: nil)
+      self.delegate = delegate
    }
    
    init(frame: CGRect, pairNumber: Int, image: UIImage?)
@@ -56,27 +66,34 @@ class ConcentrationTile: UIView {
    }
    
    @objc func tileTapped(_ sender:UITapGestureRecognizer) {
-      UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-         if self.flipped {
-            self.transform = CGAffineTransform(scaleX: 1, y: -1)
-            self.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.backgroundColor = UIColor.darkGray
-            self.flippedNumberLabel.isHidden = true
-            self.imageView.isHidden = false
-            self.imageView.image = self.unflippedImage
-         } else {
-            self.transform = CGAffineTransform(scaleX: 1, y: -1)
-            self.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.backgroundColor = UIColor.white
-            if self.flippedImage != nil {
-               self.imageView.image = self.flippedImage
-            } else {
-               self.imageView.isHidden = true
-               self.flippedNumberLabel.isHidden = false
-            }
-         }
-         self.flipped = !self.flipped
-      }, completion: nil)
+      if !self.flipped && self.delegate?.lockFlipping != true {
+         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.flipTile()
+         }, completion: nil)
+      }
+   }
+   
+   func flipTile() {
+      self.transform = CGAffineTransform(scaleX: 1, y: -1)
+      self.transform = CGAffineTransform(scaleX: 1, y: 1)
+      self.backgroundColor = UIColor.white
+      if self.flippedImage != nil {
+         self.imageView.image = self.flippedImage
+      } else {
+         self.imageView.isHidden = true
+         self.flippedNumberLabel.isHidden = false
+      }
+      self.flipped = true
+      self.delegate?.tileFlipped(self)
    }
 
+   func unflipTile() {
+      self.transform = CGAffineTransform(scaleX: 1, y: -1)
+      self.transform = CGAffineTransform(scaleX: 1, y: 1)
+      self.backgroundColor = UIColor.darkGray
+      self.flippedNumberLabel.isHidden = true
+      self.imageView.isHidden = false
+      self.imageView.image = self.unflippedImage
+      self.flipped = false
+   }
 }

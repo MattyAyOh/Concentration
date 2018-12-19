@@ -22,16 +22,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMu-Lf-NGV" customClass="ConcentrationGridView" customModule="Concentration" customModuleProvider="target">
-                    <rect key="frame" x="20" y="40" width="335" height="607"/>
+                    <rect key="frame" x="20" y="67" width="335" height="580"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8j-4L-ofM">
+                    <rect key="frame" x="20" y="30" width="86" height="30"/>
+                    <state key="normal" title="Pause Game"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP0-Zb-cVG">
+                    <rect key="frame" x="277" y="30" width="78" height="30"/>
+                    <state key="normal" title="Save Game"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvP-z8-Ufp">
+                    <rect key="frame" x="164.5" y="30" width="46" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BP0-Zb-cVG" secondAttribute="trailing" constant="20" id="6lW-mH-SgJ"/>
+                <constraint firstItem="ZvP-z8-Ufp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="71g-jB-M6B"/>
+                <constraint firstItem="Y8j-4L-ofM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="F81-VV-xWn"/>
                 <constraint firstItem="rMu-Lf-NGV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Gxs-Lf-vXC"/>
+                <constraint firstItem="rMu-Lf-NGV" firstAttribute="top" secondItem="ZvP-z8-Ufp" secondAttribute="bottom" constant="16" id="Hjo-HV-yNl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rMu-Lf-NGV" secondAttribute="trailing" constant="20" id="gDp-eR-3id"/>
+                <constraint firstItem="Y8j-4L-ofM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ne2-tJ-FHW"/>
+                <constraint firstItem="ZvP-z8-Ufp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="pFH-3o-d5S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rMu-Lf-NGV" secondAttribute="bottom" constant="20" id="tCG-hs-lIF"/>
-                <constraint firstItem="rMu-Lf-NGV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="u3O-0X-orh"/>
+                <constraint firstItem="BP0-Zb-cVG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ukZ-q0-bwM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
