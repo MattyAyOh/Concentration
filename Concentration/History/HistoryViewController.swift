@@ -23,7 +23,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let history = historyList[indexPath.row]
-      let header = "Won in \(history.minutesCompleted):\(history.secondsCompleted), with \(history.movesMade) moves"
+      let header = "Matched \(history.totalPairs) pairs, in \(history.totalTime.inMinutes()):\(history.totalTime.inSeconds()), with \(history.movesMade) moves"
       let subtitle = "\(history.dateCompleted)"
       
       let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "HistoryCell")
@@ -45,7 +45,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
       let averageNumPairs:Int = historyList.count > 0 ? totalPairs/historyList.count : 0
       let averageTimePerPair:Int = totalTime > 0 ? totalPairs/totalTime : 0
       
-      totalTimeLabel.text = String(totalTime)
+      totalTimeLabel.text = "\(totalTime.inMinutes()):\(totalTime.inSeconds())"
       totalPairsLabel.text = String(totalPairs)
       averageNumPairsLabel.text = String(averageNumPairs)
       averageTimePerPairLabel.text = String(averageTimePerPair)

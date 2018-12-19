@@ -66,9 +66,7 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    
    @objc func updateTimerLabel() {
       let timeElapsed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
-      let minutesElapsed = String(format: "%02d", timeElapsed / 60)
-      let secondsElapsed = String(format: "%02d", timeElapsed % 60)
-      timerLabel.text = "\(minutesElapsed):\(secondsElapsed)"
+      timerLabel.text = "\(timeElapsed.inMinutes()):\(timeElapsed.inSeconds())"
    }
    
    func pairGuessed() {
