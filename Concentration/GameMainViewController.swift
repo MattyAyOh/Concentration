@@ -84,6 +84,8 @@ class GameMainViewController: UIViewController, GridViewDelegate {
          finishedGameAlert.addAction(UIAlertAction(title: "Ok", style: .default))
          
          present(finishedGameAlert, animated: true, completion: {
+            let win = HistoryModel(dateCompleted: Date(), timePassed: (self.backingModel?.secondsPassed ?? 0), movesMade: (self.backingModel?.movesMade ?? 0))
+            HistoryManager.addWinToHistory(win)
             ModelManager.emptyCache()
             self.goHome()
          })

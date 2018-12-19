@@ -13,6 +13,8 @@
 		3A7899D321C8C7CF00D9EF4C /* ConcentrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899D221C8C7CF00D9EF4C /* ConcentrationModel.swift */; };
 		3A7899D721CA37EB00D9EF4C /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899D621CA37EB00D9EF4C /* ModelManager.swift */; };
 		3A7899D921CA398600D9EF4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899D821CA398600D9EF4C /* Constants.swift */; };
+		3A7899DB21CA458F00D9EF4C /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899DA21CA458F00D9EF4C /* HistoryModel.swift */; };
+		3A7899DD21CA4A6000D9EF4C /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899DC21CA4A6000D9EF4C /* HistoryManager.swift */; };
 		3AC9BE0021C7643000858240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9BDFF21C7643000858240 /* AppDelegate.swift */; };
 		3AC9BE0221C7643000858240 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9BE0121C7643000858240 /* HomeViewController.swift */; };
 		3AC9BE0721C7643100858240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC9BE0621C7643100858240 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		3A7899D221C8C7CF00D9EF4C /* ConcentrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationModel.swift; sourceTree = "<group>"; };
 		3A7899D621CA37EB00D9EF4C /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		3A7899D821CA398600D9EF4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3A7899DA21CA458F00D9EF4C /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		3A7899DC21CA4A6000D9EF4C /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		3AC9BDFC21C7643000858240 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC9BDFF21C7643000858240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AC9BE0121C7643000858240 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,17 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		3A7899DE21CA4B8900D9EF4C /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3AC9BE2921C7697300858240 /* HistoryViewController.swift */,
+				3AC9BE2A21C7697300858240 /* HistoryViewController.xib */,
+				3A7899DA21CA458F00D9EF4C /* HistoryModel.swift */,
+				3A7899DC21CA4A6000D9EF4C /* HistoryManager.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		3AC9BDF321C7643000858240 = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +126,7 @@
 		3AC9BDFE21C7643000858240 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				3A7899D221C8C7CF00D9EF4C /* ConcentrationModel.swift */,
+				3A7899DE21CA4B8900D9EF4C /* History */,
 				3A7899CB21C78D8000D9EF4C /* Custom Views */,
 				3AC9BDFF21C7643000858240 /* AppDelegate.swift */,
 				3AC9BE0621C7643100858240 /* Assets.xcassets */,
@@ -123,10 +138,9 @@
 				3AC9BE2321C7667900858240 /* HomeViewController.xib */,
 				3AC9BE2521C766D700858240 /* GameMainViewController.swift */,
 				3AC9BE2621C766D700858240 /* GameMainViewController.xib */,
-				3AC9BE2921C7697300858240 /* HistoryViewController.swift */,
-				3AC9BE2A21C7697300858240 /* HistoryViewController.xib */,
 				3A7899D621CA37EB00D9EF4C /* ModelManager.swift */,
 				3A7899D821CA398600D9EF4C /* Constants.swift */,
+				3A7899D221C8C7CF00D9EF4C /* ConcentrationModel.swift */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -250,8 +264,10 @@
 				3AC9BE0021C7643000858240 /* AppDelegate.swift in Sources */,
 				3AC9BE2B21C7697300858240 /* HistoryViewController.swift in Sources */,
 				3A7899D321C8C7CF00D9EF4C /* ConcentrationModel.swift in Sources */,
+				3A7899DD21CA4A6000D9EF4C /* HistoryManager.swift in Sources */,
 				3A7899CD21C78DA100D9EF4C /* RoundedBackgroundView.swift in Sources */,
 				3AC9BE2121C7664F00858240 /* GameSelectViewController.swift in Sources */,
+				3A7899DB21CA458F00D9EF4C /* HistoryModel.swift in Sources */,
 				3A7899D721CA37EB00D9EF4C /* ModelManager.swift in Sources */,
 				3A7899CF21C7921B00D9EF4C /* ConcentrationGridView.swift in Sources */,
 				3A7899D121C89FCA00D9EF4C /* ConcentrationTile.swift in Sources */,
