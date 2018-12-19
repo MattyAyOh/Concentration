@@ -11,6 +11,7 @@ import UIKit
 protocol TileDelegate: NSObjectProtocol {
    var lockFlipping:Bool {get set}
    func tileFlipped(_ tile:ConcentrationTile)
+   func resetGuessedTiles()
 }
 
 class ConcentrationTile: UIView {
@@ -72,6 +73,8 @@ class ConcentrationTile: UIView {
          UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.flipTileAndNotify()
          }, completion: nil)
+      } else if self.delegate?.lockFlipping == true {
+         delegate?.resetGuessedTiles()
       }
    }
    

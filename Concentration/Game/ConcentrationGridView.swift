@@ -16,6 +16,7 @@ protocol GridViewDelegate: NSObjectProtocol {
 class ConcentrationGridView: UIView, TileDelegate {
    var tiles: [ConcentrationTile] = []
    var firstChosenTile:ConcentrationTile?
+   var secondChosenTile:ConcentrationTile?
    
    var lockFlipping = false
    
@@ -86,14 +87,22 @@ class ConcentrationGridView: UIView, TileDelegate {
             firstChosenTile = nil
          } else {
             lockFlipping = true
+            secondChosenTile = tile
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-               tile.unflipTile()
-               self.firstChosenTile?.unflipTile()
-               self.firstChosenTile = nil
-               self.lockFlipping = false
+               if self.lockFlipping {
+                  self.resetGuessedTiles()
+               }
             }
          }
          
       }
+   }
+   
+   func resetGuessedTiles() {
+      self.firstChosenTile?.unflipTile()
+      self.firstChosenTile = nil
+      self.secondChosenTile?.unflipTile()
+      self.secondChosenTile = nil
+      self.lockFlipping = false
    }
 }
