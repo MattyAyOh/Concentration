@@ -22,6 +22,7 @@ class ConcentrationGridView: UIView, TileDelegate {
    weak var delegate:GridViewDelegate?
    
    func loadFromModel(_ model:GameModel) {
+      self.backgroundColor = UIColor.clear
       addTiles(model.numTiles())
       for i in 0..<tiles.count {
          let pairNum = model.tilePlacementInGrid[i]

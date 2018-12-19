@@ -23,6 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paint-9" translatesAutoresizingMaskIntoConstraints="NO" id="40K-gh-wJu">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvP-z8-Ufp">
                     <rect key="frame" x="160" y="30" width="55.5" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -56,8 +59,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="40K-gh-wJu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3IU-iJ-v6F"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BP0-Zb-cVG" secondAttribute="trailing" constant="20" id="6lW-mH-SgJ"/>
                 <constraint firstItem="ZvP-z8-Ufp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="71g-jB-M6B"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="40K-gh-wJu" secondAttribute="bottom" id="AhY-TO-0eW"/>
+                <constraint firstItem="40K-gh-wJu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="F3V-6G-Gu6"/>
                 <constraint firstItem="Y8j-4L-ofM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="F81-VV-xWn"/>
                 <constraint firstItem="rMu-Lf-NGV" firstAttribute="top" secondItem="Bll-9Q-4Ue" secondAttribute="bottom" constant="16" id="FH6-5b-M3p"/>
                 <constraint firstItem="rMu-Lf-NGV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Gxs-Lf-vXC"/>
@@ -66,10 +72,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rMu-Lf-NGV" secondAttribute="trailing" constant="20" id="gDp-eR-3id"/>
                 <constraint firstItem="Y8j-4L-ofM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ne2-tJ-FHW"/>
                 <constraint firstItem="ZvP-z8-Ufp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="pFH-3o-d5S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="40K-gh-wJu" secondAttribute="trailing" id="rEw-eV-18d"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rMu-Lf-NGV" secondAttribute="bottom" constant="20" id="tCG-hs-lIF"/>
                 <constraint firstItem="BP0-Zb-cVG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ukZ-q0-bwM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="paint-9" width="720" height="518.15997314453125"/>
+    </resources>
 </document>
