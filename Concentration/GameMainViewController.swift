@@ -67,14 +67,15 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      model?.secondsPassed = (model?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
+      let newSecondsPassed = (model?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
+      model?.secondsPassed = newSecondsPassed
       timer?.invalidate()
    }
    
-   
-   
    @IBAction func pausePressed(_ sender: Any) {
+      self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
    }
+   
    @IBAction func savePressed(_ sender: Any) {
    }
    

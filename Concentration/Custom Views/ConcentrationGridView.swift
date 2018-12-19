@@ -25,7 +25,7 @@ class ConcentrationGridView: UIView, TileDelegate {
       addTiles(model.numTiles())
       for i in 0..<tiles.count {
          let pairNum = model.tilePlacementInGrid[i]
-         guard let tileImage = model.pairNumToImage[pairNum] else { fatalError("PairNum to Image should have key/value for tile num") }
+         guard let tileImage = K.pairNumToImage[pairNum] else { fatalError("PairNum to Image should have key/value for tile num") }
          tiles[i].updateTile(withNewNum: pairNum, andNewImage: tileImage)
       }
    }
