@@ -30,6 +30,9 @@ class ConcentrationGridView: UIView, TileDelegate {
          } else {
             tiles[i].updateTile(withNewNum: pairNum, andNewImage: nil)
          }
+         if model.completedTilePairs.contains(pairNum) {
+            tiles[i].flipTile()
+         }
       }
    }
    

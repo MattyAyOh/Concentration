@@ -68,7 +68,7 @@ class ConcentrationTile: UIView {
    @objc func tileTapped(_ sender:UITapGestureRecognizer) {
       if !self.flipped && self.delegate?.lockFlipping != true {
          UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.flipTile()
+            self.flipTileAndNotify()
          }, completion: nil)
       }
    }
@@ -84,9 +84,13 @@ class ConcentrationTile: UIView {
          self.flippedNumberLabel.isHidden = false
       }
       self.flipped = true
-      self.delegate?.tileFlipped(self)
    }
 
+   func flipTileAndNotify() {
+      flipTile()
+      self.delegate?.tileFlipped(self)
+   }
+   
    func unflipTile() {
       self.transform = CGAffineTransform(scaleX: 1, y: -1)
       self.transform = CGAffineTransform(scaleX: 1, y: 1)
