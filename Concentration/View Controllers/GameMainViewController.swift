@@ -80,11 +80,13 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       backingModel?.completedTilePairs.insert(pairNum)
       
       if backingModel?.completedTilePairs.count == backingModel?.numPairs() {
+         pauseTimer()
          let finishedGameAlert = UIAlertController(title: "You Win!", message: "Game will be stored in your History.", preferredStyle: UIAlertController.Style.alert)
          finishedGameAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             let win = HistoryModel(dateCompleted: Date(), timePassed: (self.backingModel?.secondsPassed ?? 0), movesMade: (self.backingModel?.movesMade ?? 0), totalPairs:(self.backingModel?.numPairs() ?? 0))
             HistoryManager.addWinToHistory(win)
             GameManager.emptyCache()
+            self.backingModel = nil
             self.goHome()
          }))
          
