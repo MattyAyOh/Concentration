@@ -14,7 +14,7 @@ struct ConcentrationModel:Codable {
    var secondsPassed:Int
    var movesMade:Int
    
-   init(numPairs:Int, images:[UIImage]) {
+   init(numPairs:Int) {
       var tileNumbers = [Int]() //Used for Tile Placements
       for i in 0..<numPairs {
          tileNumbers.append(contentsOf: [i,i])

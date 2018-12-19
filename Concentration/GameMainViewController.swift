@@ -19,9 +19,9 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       return tmpFormatter
    }()
 
-   var model:ConcentrationModel?
+   var backingModel:ConcentrationModel?
    init(model: ConcentrationModel?) {
-      self.model = model
+      self.backingModel = model
       super.init(nibName: nil, bundle: nil)
    }
    
@@ -37,43 +37,51 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      guard let m = self.model else {return}
+      guard let m = self.backingModel else {return}
       mainGrid.loadFromModel(m)
       mainGrid.delegate = self
    }
    
    @objc func updateTimerLabel() {
-      let timeElapsed = (model?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
+      let timeElapsed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
       let minutesElapsed = String(format: "%02d", timeElapsed / 60)
       let secondsElapsed = String(format: "%02d", timeElapsed % 60)
       timerLabel.text = "\(minutesElapsed):\(secondsElapsed)"
    }
    
    func pairGuessed() {
-      model?.movesMade += 1
-      movesLabel.text = String(model?.movesMade ?? 0)
+      backingModel?.movesMade += 1
+      movesLabel.text = String(backingModel?.movesMade ?? 0)
    }
    
    func pairFound(_ pairNum: Int) {
-      model?.completedTilePairs.insert(pairNum)
+      backingModel?.completedTilePairs.insert(pairNum)
    }
    
    override func viewWillAppear(_ animated: Bool) {
       timeAtLoad = CFAbsoluteTimeGetCurrent()
       updateTimerLabel()
       timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
-      movesLabel.text = String(model?.movesMade ?? 0)
+      movesLabel.text = String(backingModel?.movesMade ?? 0)
    }
    
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      let newSecondsPassed = (model?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
-      model?.secondsPassed = newSecondsPassed
+      let newSecondsPassed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
+      backingModel?.secondsPassed = newSecondsPassed
       timer?.invalidate()
+      
+      if let m = backingModel {
+         ModelManager.cache(model: m)
+      }
    }
    
    @IBAction func pausePressed(_ sender: Any) {
-      self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+      if self.presentingViewController is HomeViewController {
+         self.presentingViewController?.dismiss(animated: true, completion: nil)
+      } else {
+         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+      }
    }
    
    @IBAction func savePressed(_ sender: Any) {

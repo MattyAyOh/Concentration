@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
    }
    
    @IBAction func loadGamePressed(_ sender: Any) {
+      let model = ModelManager.loadFromCache()
+      let gameMainVC = GameMainViewController(model: model)
+      self.present(gameMainVC, animated: true, completion: nil)
    }
    
    @IBAction func historyPressed(_ sender: Any) {
