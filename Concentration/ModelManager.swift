@@ -8,11 +8,10 @@
 
 import Foundation
 
-class ModelManager {
-   static let shared = ModelManager()
+struct ModelManager {
    static let cacheDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("localModel", isDirectory: false)
    
-   class func cache(model:ConcentrationModel) {
+   static func cache(model:ConcentrationModel) {
       let encoded = try! JSONEncoder().encode(model)
       do {
          try encoded.write(to: cacheDirectory, options: [.atomicWrite])
@@ -21,9 +20,14 @@ class ModelManager {
       }
    }
    
-   class func loadFromCache() -> ConcentrationModel? {
+   static func loadFromCache() -> ConcentrationModel? {
       guard let data = try? Data(contentsOf: cacheDirectory),
          let decoded = try? JSONDecoder().decode(ConcentrationModel.self, from: data) else { return nil }
       return decoded
+   }
+   
+   static func modelInCacheAvailable() -> Bool {
+      let fileManager = FileManager.default
+      return fileManager.fileExists(atPath: cacheDirectory.path)
    }
 }

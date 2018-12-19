@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Concentration" customModuleProvider="target">
             <connections>
+                <outlet property="loadGameButton" destination="Hl8-bn-CwN" id="tpN-Ga-0my"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GFd-md-dBo"/>
             </connections>
         </placeholder>
