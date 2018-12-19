@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
    @IBOutlet var loadGameButton: UIButton!
    override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-      loadGameButton.isEnabled = ModelManager.modelInCacheAvailable()
+      loadGameButton.isEnabled = GameManager.modelInCacheAvailable()
    }
 
    @IBAction func newGamePressed(_ sender: Any) {
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
          let gameSelectVC = GameSelectViewController(nibName: nil, bundle: nil)
          self.present(gameSelectVC, animated: true, completion: nil)
       }
-      if ModelManager.modelInCacheAvailable() {
+      if GameManager.modelInCacheAvailable() {
          let gameExistsAlert = UIAlertController(title: "Game In Progress", message: "Saved game will be lost. Start a new game?", preferredStyle: UIAlertController.Style.alert)
          
          gameExistsAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
    }
    
    @IBAction func loadGamePressed(_ sender: Any) {
-      let model = ModelManager.loadFromCache()
+      let model = GameManager.loadFromCache()
       let gameMainVC = GameMainViewController(model: model)
       self.present(gameMainVC, animated: true, completion: nil)
    }

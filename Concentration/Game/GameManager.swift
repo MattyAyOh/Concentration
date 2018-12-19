@@ -1,5 +1,5 @@
 //
-//  ModelManager.swift
+//  GameManager.swift
 //  Concentration
 //
 //  Created by Matthew Ao on 12/19/18.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct ModelManager {
+struct GameManager {
    static let cacheURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("localModel", isDirectory: false)
    
-   static func cache(model:ConcentrationModel) {
+   static func cache(model:GameModel) {
       let encoded = try! JSONEncoder().encode(model)
       do {
          try encoded.write(to: cacheURL, options: [.atomicWrite])
@@ -20,9 +20,9 @@ struct ModelManager {
       }
    }
    
-   static func loadFromCache() -> ConcentrationModel? {
+   static func loadFromCache() -> GameModel? {
       guard let data = try? Data(contentsOf: cacheURL),
-         let decoded = try? JSONDecoder().decode(ConcentrationModel.self, from: data) else { return nil }
+         let decoded = try? JSONDecoder().decode(GameModel.self, from: data) else { return nil }
       return decoded
    }
    

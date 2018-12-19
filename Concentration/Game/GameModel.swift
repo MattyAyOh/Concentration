@@ -1,5 +1,5 @@
 //
-//  ConcentrationModel.swift
+//  GameModel.swift
 //  Concentration
 //
 //  Created by Matthew Ao on 12/17/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ConcentrationModel:Codable {
+struct GameModel:Codable {
    var completedTilePairs: Set<Int>
    var tilePlacementInGrid: [Int] // Shouldn't have more than 2 of the same number
    var secondsPassed:Int

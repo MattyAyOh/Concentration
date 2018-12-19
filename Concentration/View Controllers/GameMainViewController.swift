@@ -86,7 +86,7 @@ class GameMainViewController: UIViewController, GridViewDelegate {
          present(finishedGameAlert, animated: true, completion: {
             let win = HistoryModel(dateCompleted: Date(), timePassed: (self.backingModel?.secondsPassed ?? 0), movesMade: (self.backingModel?.movesMade ?? 0))
             HistoryManager.addWinToHistory(win)
-            ModelManager.emptyCache()
+            GameManager.emptyCache()
             self.goHome()
          })
       }
@@ -102,7 +102,7 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       pauseTimer()
       
       if let m = backingModel {
-         ModelManager.cache(model: m)
+         GameManager.cache(model: m)
       }
    }
    
