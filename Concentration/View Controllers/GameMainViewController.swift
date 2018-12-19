@@ -19,8 +19,8 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       return tmpFormatter
    }()
 
-   var backingModel:ConcentrationModel?
-   init(model: ConcentrationModel?) {
+   var backingModel:GameModel?
+   init(model: GameModel?) {
       self.backingModel = model
       super.init(nibName: nil, bundle: nil)
       NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
@@ -84,7 +84,7 @@ class GameMainViewController: UIViewController, GridViewDelegate {
          finishedGameAlert.addAction(UIAlertAction(title: "Ok", style: .default))
          
          present(finishedGameAlert, animated: true, completion: {
-            let win = HistoryModel(dateCompleted: Date(), timePassed: (self.backingModel?.secondsPassed ?? 0), movesMade: (self.backingModel?.movesMade ?? 0))
+            let win = HistoryModel(dateCompleted: Date(), timePassed: (self.backingModel?.secondsPassed ?? 0), movesMade: (self.backingModel?.movesMade ?? 0), totalPairs:(self.backingModel?.numPairs() ?? 0))
             HistoryManager.addWinToHistory(win)
             GameManager.emptyCache()
             self.goHome()

@@ -12,7 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="Concentration" customModuleProvider="target">
             <connections>
+                <outlet property="averageNumPairsLabel" destination="md5-ff-Uxq" id="sSD-ip-nSt"/>
+                <outlet property="averageTimePerPairLabel" destination="OQQ-k3-8K0" id="ss1-aJ-OuY"/>
                 <outlet property="historyTable" destination="4Ow-dB-YhR" id="3Hw-Rk-Hae"/>
+                <outlet property="totalPairsLabel" destination="fEk-g8-c0d" id="6SI-Zg-5Hx"/>
+                <outlet property="totalTimeLabel" destination="AYt-gJ-civ" id="P9M-vG-KMN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
