@@ -119,10 +119,10 @@
 		3A7899E021CA4D1500D9EF4C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3AC9BE1F21C7664F00858240 /* GameSelectViewController.swift */,
-				3AC9BE2021C7664F00858240 /* GameSelectViewController.xib */,
 				3AC9BE0121C7643000858240 /* HomeViewController.swift */,
 				3AC9BE2321C7667900858240 /* HomeViewController.xib */,
+				3AC9BE1F21C7664F00858240 /* GameSelectViewController.swift */,
+				3AC9BE2021C7664F00858240 /* GameSelectViewController.xib */,
 				3AC9BE2521C766D700858240 /* GameMainViewController.swift */,
 				3AC9BE2621C766D700858240 /* GameMainViewController.xib */,
 			);
@@ -445,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UM9YJ48CFT;
 				INFOPLIST_FILE = Concentration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UM9YJ48CFT;
 				INFOPLIST_FILE = Concentration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

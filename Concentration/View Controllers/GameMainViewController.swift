@@ -11,13 +11,10 @@ import UIKit
 class GameMainViewController: UIViewController, GridViewDelegate {
    @IBOutlet var movesLabel: UILabel!
    @IBOutlet var timerLabel: UILabel!
+   @IBOutlet var mainGrid: ConcentrationGridView!
+
    var timer: Timer?
    var timeAtLoad = CFAbsoluteTimeGetCurrent()
-   let formatter: DateFormatter = {
-      let tmpFormatter = DateFormatter()
-      tmpFormatter.dateFormat = "mm:ss"
-      return tmpFormatter
-   }()
 
    var backingModel:GameModel?
    init(model: GameModel?) {
@@ -27,6 +24,36 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
    }
    
+   override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+      fatalError("Need to call init w/ Concentration Model")
+   }
+   
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      guard let m = self.backingModel else {return}
+      mainGrid.loadFromModel(m)
+      mainGrid.delegate = self
+   }
+   
+   override func viewWillAppear(_ animated: Bool) {
+      resumeTimer()
+      movesLabel.text = String(backingModel?.movesMade ?? 0)
+   }
+   
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      pauseTimer()
+      
+      if let m = backingModel {
+         GameManager.saveToCache(model: m)
+      }
+   }
+   
    @objc func willResignActive(_ notification: Notification) {
       pauseTimer()
    }
@@ -34,6 +61,8 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    @objc func willEnterForeground(_ notification: Notification) {
       resumeTimer()
    }
+   
+   //MARK: - Timer
    
    func resumeTimer() {
       timeAtLoad = CFAbsoluteTimeGetCurrent()
@@ -47,27 +76,31 @@ class GameMainViewController: UIViewController, GridViewDelegate {
       timer?.invalidate()
    }
    
-   override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-      fatalError("Need to call init w/ Concentration Model")
-   }
-   
-   required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
-   }
-   
-   @IBOutlet var mainGrid: ConcentrationGridView!
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      guard let m = self.backingModel else {return}
-      mainGrid.loadFromModel(m)
-      mainGrid.delegate = self
-   }
-   
    @objc func updateTimerLabel() {
       let timeElapsed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
       timerLabel.text = "\(timeElapsed.inMinutes()):\(timeElapsed.inSeconds())"
    }
+
+   //MARK: - Button Actions
+   
+   @IBAction func pausePressed(_ sender: Any) {
+      goHome()
+   }
+   
+   private func goHome() {
+      if self.presentingViewController is HomeViewController {
+         self.presentingViewController?.dismiss(animated: true, completion: nil)
+      } else {
+         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+      }
+   }
+   
+   @IBAction func savePressed(_ sender: Any) {
+      guard let model = self.backingModel else { fatalError("No backing model found") }
+      GameManager.uploadGameModel(model: model)
+   }
+   
+   //MARK: GridViewDelegate
    
    func pairGuessed() {
       backingModel?.movesMade += 1
@@ -91,36 +124,4 @@ class GameMainViewController: UIViewController, GridViewDelegate {
          present(finishedGameAlert, animated: true, completion: nil)
       }
    }
-   
-   override func viewWillAppear(_ animated: Bool) {
-      resumeTimer()
-      movesLabel.text = String(backingModel?.movesMade ?? 0)
-   }
-   
-   override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      pauseTimer()
-      
-      if let m = backingModel {
-         GameManager.saveToCache(model: m)
-      }
-   }
-   
-   @IBAction func pausePressed(_ sender: Any) {
-      goHome()
-   }
-   
-   private func goHome() {
-      if self.presentingViewController is HomeViewController {
-         self.presentingViewController?.dismiss(animated: true, completion: nil)
-      } else {
-         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-      }
-   }
-   
-   @IBAction func savePressed(_ sender: Any) {
-      guard let model = self.backingModel else { fatalError("No backing model found") }
-      GameManager.uploadGameModel(model: model)
-   }
-   
 }

@@ -65,6 +65,8 @@ class ConcentrationTile: UIView {
       self.flippedNumberLabel.text = String(newNum)
    }
    
+   //MARK: - Flipping
+   
    @objc func tileTapped(_ sender:UITapGestureRecognizer) {
       if !self.flipped && self.delegate?.lockFlipping != true {
          UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
