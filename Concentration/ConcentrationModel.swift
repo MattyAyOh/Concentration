@@ -13,6 +13,9 @@ struct ConcentrationModel {
    var completedTilePairs: Set<Int>
    var tilePlacementInGrid: [Int] // Shouldn't have more than 2 of the same number
    
+   var secondsPassed:Int
+   var movesMade:Int
+   
    init(numPairs:Int, images:[UIImage]) {
       var numToImage = [Int:UIImage?]()
       var tileNumbers = [Int]() //Used for Tile Placements
@@ -28,6 +31,9 @@ struct ConcentrationModel {
       self.tilePlacementInGrid = tileNumbers
       self.pairNumToImage = numToImage
       self.completedTilePairs = Set<Int>()
+      
+      self.secondsPassed = 0
+      self.movesMade = 0
    }
    
    func numTiles() -> Int {

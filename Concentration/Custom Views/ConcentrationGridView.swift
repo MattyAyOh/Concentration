@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol GridViewDelegate: NSObjectProtocol {
+   func pairGuessed()
+   func pairFound(_ pairNum:Int)
+}
+
 class ConcentrationGridView: UIView, TileDelegate {
    var tiles: [ConcentrationTile] = []
    var firstChosenTile:ConcentrationTile?
    
-   var backingModel:ConcentrationModel?
    var lockFlipping = false
+   
+   weak var delegate:GridViewDelegate?
    
    func loadFromModel(_ model:ConcentrationModel) {
       addTiles(model.numTiles())
@@ -22,7 +28,6 @@ class ConcentrationGridView: UIView, TileDelegate {
          guard let tileImage = model.pairNumToImage[pairNum] else { fatalError("PairNum to Image should have key/value for tile num") }
          tiles[i].updateTile(withNewNum: pairNum, andNewImage: tileImage)
       }
-      backingModel = model
    }
    
    private func addTiles(_ numTiles: Int) {
@@ -68,8 +73,9 @@ class ConcentrationGridView: UIView, TileDelegate {
       if firstChosenTile == nil {
          firstChosenTile = tile
       } else {
+         delegate?.pairGuessed()
          if firstChosenTile?.pairNumber == tile.pairNumber {
-            backingModel?.completedTilePairs.insert(tile.pairNumber)
+            delegate?.pairFound(tile.pairNumber)
             firstChosenTile = nil
          } else {
             lockFlipping = true
