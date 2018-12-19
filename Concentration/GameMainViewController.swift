@@ -23,6 +23,28 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    init(model: ConcentrationModel?) {
       self.backingModel = model
       super.init(nibName: nil, bundle: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+   }
+   
+   @objc func willResignActive(_ notification: Notification) {
+      pauseTimer()
+   }
+   
+   @objc func willEnterForeground(_ notification: Notification) {
+      resumeTimer()
+   }
+   
+   func resumeTimer() {
+      timeAtLoad = CFAbsoluteTimeGetCurrent()
+      updateTimerLabel()
+      timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
+   }
+   
+   func pauseTimer() {
+      let newSecondsPassed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
+      backingModel?.secondsPassed = newSecondsPassed
+      timer?.invalidate()
    }
    
    override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -59,17 +81,13 @@ class GameMainViewController: UIViewController, GridViewDelegate {
    }
    
    override func viewWillAppear(_ animated: Bool) {
-      timeAtLoad = CFAbsoluteTimeGetCurrent()
-      updateTimerLabel()
-      timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
+      resumeTimer()
       movesLabel.text = String(backingModel?.movesMade ?? 0)
    }
    
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      let newSecondsPassed = (backingModel?.secondsPassed ?? 0) + Int(CFAbsoluteTimeGetCurrent() - timeAtLoad)
-      backingModel?.secondsPassed = newSecondsPassed
-      timer?.invalidate()
+      pauseTimer()
       
       if let m = backingModel {
          ModelManager.cache(model: m)
