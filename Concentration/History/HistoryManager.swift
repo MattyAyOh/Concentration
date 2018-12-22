@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct HistoryManager {
-   static let historyDataURL = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("history", isDirectory: false)
-   
+struct HistoryManager: DataManager {
+   static var cacheURL: URL = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("history", isDirectory: false)
+         
    static func addWinToHistory(_ history:HistoryModel) {
       var allHistory:[HistoryModel] = loadFromCache() ?? [HistoryModel]()
       allHistory.insert(history, at: 0)
@@ -20,19 +20,19 @@ struct HistoryManager {
    static func saveToCache(model:[HistoryModel]) {
       let encoded = try! JSONEncoder().encode(model)
       do {
-         try encoded.write(to: historyDataURL, options: [.atomicWrite])
+         try encoded.write(to: cacheURL, options: [.atomicWrite])
       } catch {
          fatalError("Failed to write item to cache: \(error)")
       }
    }
    
    static func loadFromCache() -> [HistoryModel]? {
-      guard let data = try? Data(contentsOf: historyDataURL),
+      guard let data = try? Data(contentsOf: cacheURL),
          let decoded = try? JSONDecoder().decode([HistoryModel].self, from: data) else { return nil }
       return decoded
    }
    
    static func clearHistory() {
-      try? FileManager.default.removeItem(atPath: historyDataURL.path)
+      try? FileManager.default.removeItem(atPath: cacheURL.path)
    }
 }

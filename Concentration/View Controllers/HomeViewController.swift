@@ -39,8 +39,9 @@ class HomeViewController: UIViewController {
    }
    
    @IBAction func loadGamePressed(_ sender: Any) {
-      let model = GameManager.loadFromCache()
-      let gameMainVC = GameMainViewController(model: model)
+      let model:GameModel? = GameManager.loadFromCache()
+      guard let gameModel = model else { fatalError("Wrong Model Loaded, Expected GameModel")}
+      let gameMainVC = GameMainViewController(model: gameModel)
       self.present(gameMainVC, animated: true, completion: nil)
    }
    

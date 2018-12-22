@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct GameManager {
-   static let cachedGameURL = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("cachedGame", isDirectory: false)
-   
+struct GameManager: DataManager {
+   static var cacheURL = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("cachedGame", isDirectory: false)
+      
    static func uploadGameModel(model:GameModel) {
       let urlString = "http://localhost:8000/"
       guard let url = URL(string: urlString) else { return }
@@ -35,29 +35,5 @@ struct GameManager {
             }
          }
       })
-   }
-   
-   static func saveToCache(model:GameModel) {
-      let encoded = try! JSONEncoder().encode(model)
-      do {
-         try encoded.write(to: cachedGameURL, options: [.atomicWrite])
-      } catch {
-         fatalError("Failed to write item to cache: \(error)")
-      }
-   }
-   
-   static func loadFromCache() -> GameModel? {
-      guard let data = try? Data(contentsOf: cachedGameURL),
-         let decoded = try? JSONDecoder().decode(GameModel.self, from: data) else { return nil }
-      return decoded
-   }
-   
-   static func modelInCacheAvailable() -> Bool {
-      let fileManager = FileManager.default
-      return fileManager.fileExists(atPath: cachedGameURL.path)
-   }
-   
-   static func emptyCache() {
-      try? FileManager.default.removeItem(atPath: cachedGameURL.path)
    }
 }
