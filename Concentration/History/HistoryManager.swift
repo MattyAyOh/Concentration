@@ -17,21 +17,6 @@ struct HistoryManager: DataManager {
       saveToCache(model: allHistory)
    }
    
-   static func saveToCache(model:[HistoryModel]) {
-      let encoded = try! JSONEncoder().encode(model)
-      do {
-         try encoded.write(to: cacheURL, options: [.atomicWrite])
-      } catch {
-         fatalError("Failed to write item to cache: \(error)")
-      }
-   }
-   
-   static func loadFromCache() -> [HistoryModel]? {
-      guard let data = try? Data(contentsOf: cacheURL),
-         let decoded = try? JSONDecoder().decode([HistoryModel].self, from: data) else { return nil }
-      return decoded
-   }
-   
    static func clearHistory() {
       try? FileManager.default.removeItem(atPath: cacheURL.path)
    }
