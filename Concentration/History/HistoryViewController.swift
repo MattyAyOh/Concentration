@@ -51,7 +51,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
       let alert = UIAlertController(title: "Clearing History", message: "Are you sure?  This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
       
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-         HistoryManager.clearHistory()
+         HistoryManager.emptyCache()
          self.loadViews()
       }))
       

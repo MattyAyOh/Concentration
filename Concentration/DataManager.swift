@@ -36,5 +36,4 @@ extension DataManager {
    static func emptyCache() {
       try? FileManager.default.removeItem(atPath: cacheURL.path)
    }
-   
 }

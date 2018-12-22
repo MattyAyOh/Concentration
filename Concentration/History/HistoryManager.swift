@@ -16,8 +16,4 @@ struct HistoryManager: DataManager {
       allHistory.insert(history, at: 0)
       saveToCache(model: allHistory)
    }
-   
-   static func clearHistory() {
-      try? FileManager.default.removeItem(atPath: cacheURL.path)
-   }
 }
