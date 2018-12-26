@@ -27,7 +27,7 @@ class ConcentrationGridView: UIView, TileDelegate {
       addTiles(model.numTiles())
       for i in 0..<tiles.count {
          let pairNum = model.tilePlacementInGrid[i]
-         if let tileImage = K.pairNumToImage[pairNum] {
+         if model.useImageTiles, let tileImage = K.pairNumToImage[pairNum] {
             tiles[i].updateTile(withNewNum: pairNum, andNewImage: tileImage)
          } else {
             tiles[i].updateTile(withNewNum: pairNum, andNewImage: nil)

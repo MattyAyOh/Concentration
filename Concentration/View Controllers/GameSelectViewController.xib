@@ -15,10 +15,12 @@
                 <outlet property="customButton" destination="69P-tW-yMg" id="raJ-L9-GeK"/>
                 <outlet property="easyButton" destination="G9a-0z-fRC" id="b2o-aF-DiB"/>
                 <outlet property="hardButton" destination="cnT-Nf-eZQ" id="bdB-LV-iaG"/>
+                <outlet property="hideCompletedTilesSwitch" destination="Plx-Zi-2LE" id="Gxr-zS-zLN"/>
                 <outlet property="mediumButton" destination="LaP-6a-lo5" id="mZB-N9-qQ8"/>
                 <outlet property="numPairsLabel" destination="jC1-Gp-d3o" id="QQt-Jm-YdD"/>
                 <outlet property="numPairsTextField" destination="usH-fV-mgq" id="l3D-rm-h9x"/>
                 <outlet property="startButton" destination="wvh-gs-213" id="cAz-fe-i8o"/>
+                <outlet property="useImageTileSwitch" destination="mNc-f1-uhZ" id="mHl-bR-OHV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -16,6 +16,8 @@ class GameSelectViewController: UIViewController, UITextFieldDelegate {
    @IBOutlet var mediumButton: UIButton!
    @IBOutlet var hardButton: UIButton!
    @IBOutlet var customButton: UIButton!
+   @IBOutlet var useImageTileSwitch: UISwitch!
+   @IBOutlet var hideCompletedTilesSwitch: UISwitch!
    @IBOutlet var startButton: UIButton!
    
    lazy var allDifficultyButtons = [easyButton, mediumButton, hardButton, customButton]
@@ -72,7 +74,9 @@ class GameSelectViewController: UIViewController, UITextFieldDelegate {
    
    @IBAction func startGamePressed(_ sender: Any) {
       let numPairs = Int(numPairsTextField.text ?? String(K.defaultNumPairs)) ?? K.defaultNumPairs
-      let model = GameModel(numPairs: numPairs)
+      let hideCompletedTiles = self.hideCompletedTilesSwitch.isOn
+      let useImageTiles = self.useImageTileSwitch.isOn
+      let model = GameModel(numPairs: numPairs, hideCompletedTiles:hideCompletedTiles, useImageTiles:useImageTiles)
       let gameMainVC = GameMainViewController(model: model)
       self.present(gameMainVC, animated: true, completion: nil)
    }

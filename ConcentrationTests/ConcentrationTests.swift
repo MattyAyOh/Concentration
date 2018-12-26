@@ -16,7 +16,7 @@ class ConcentrationTests: XCTestCase, GridViewDelegate {
    var backingModel:GameModel? = nil
    
    override func setUp() {
-      let model = GameModel(numPairs: ConcentrationTests.numPairs)
+      let model = GameModel(numPairs: ConcentrationTests.numPairs, hideCompletedTiles:false, useImageTiles:false)
       backingModel = model
       gridView = ConcentrationGridView.init(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
       gridView?.loadFromModel(model)
