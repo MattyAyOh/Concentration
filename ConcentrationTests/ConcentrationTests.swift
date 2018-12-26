@@ -46,7 +46,7 @@ class ConcentrationTests: XCTestCase, GridViewDelegate {
             
             firstTile?.tileTapped(UITapGestureRecognizer())
             tile.tileTapped(UITapGestureRecognizer())
-            if gridView?.lockFlipping == true {
+            if gridView?.showingWrongGuess == true {
                tile.tileTapped(UITapGestureRecognizer())
             }
          }

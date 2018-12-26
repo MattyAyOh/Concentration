@@ -18,7 +18,7 @@ class ConcentrationGridView: UIView, TileDelegate {
    var firstChosenTile:ConcentrationTile?
    var secondChosenTile:ConcentrationTile?
    
-   var lockFlipping = false
+   var showingWrongGuess = false
    
    weak var delegate:GridViewDelegate?
    
@@ -93,10 +93,10 @@ class ConcentrationGridView: UIView, TileDelegate {
                self.firstChosenTile = nil
             }
          } else {
-            lockFlipping = true
+            showingWrongGuess = true
             secondChosenTile = tile
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-               if self.lockFlipping {
+               if self.showingWrongGuess {
                   self.resetGuessedTiles()
                }
             }
@@ -110,6 +110,6 @@ class ConcentrationGridView: UIView, TileDelegate {
       self.firstChosenTile = nil
       self.secondChosenTile?.unflipTile()
       self.secondChosenTile = nil
-      self.lockFlipping = false
+      self.showingWrongGuess = false
    }
 }
