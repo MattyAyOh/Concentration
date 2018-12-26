@@ -16,6 +16,7 @@ protocol GridViewDelegate: NSObjectProtocol {
 class ConcentrationGridView: UIView, TileDelegate {
    var tiles: [ConcentrationTile] = []
    var firstChosenTile:ConcentrationTile?
+   private var hideCompletedPairs = false
    
    weak var delegate:GridViewDelegate?
    
@@ -36,6 +37,7 @@ class ConcentrationGridView: UIView, TileDelegate {
             }
          }
       }
+      hideCompletedPairs = model.hideCompletedPairs
    }
    
    private func addTiles(_ numTiles: Int) {
@@ -84,11 +86,14 @@ class ConcentrationGridView: UIView, TileDelegate {
          delegate?.pairGuessed()
          if firstChosenTile?.pairNumber == tile.pairNumber {
             delegate?.pairFound(tile.pairNumber)
-            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-               tile.isHidden = true
-               self.firstChosenTile?.isHidden = true
-               self.firstChosenTile = nil
+            let firstTile = self.firstChosenTile
+            if hideCompletedPairs {
+               DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                  tile.isHidden = true
+                  firstTile?.isHidden = true
+               }
             }
+            self.firstChosenTile = nil
          } else {
             tile.wrongGuessKeepFlipped()
             firstChosenTile?.wrongGuessKeepFlipped()
