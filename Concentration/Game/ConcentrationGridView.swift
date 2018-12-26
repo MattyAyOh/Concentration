@@ -34,6 +34,8 @@ class ConcentrationGridView: UIView, TileDelegate {
             tiles[i].flipTile()
             if model.hideCompletedPairs {
                tiles[i].isHidden = true
+            } else {
+               tiles[i].backgroundColor = K.correctGuessColor
             }
          }
       }
@@ -92,6 +94,11 @@ class ConcentrationGridView: UIView, TileDelegate {
                   tile.isHidden = true
                   firstTile?.isHidden = true
                }
+            } else {
+               UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                  tile.backgroundColor = K.correctGuessColor
+                  firstTile?.backgroundColor = K.correctGuessColor
+               }, completion: nil)
             }
             self.firstChosenTile = nil
          } else {

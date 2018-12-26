@@ -53,9 +53,9 @@ class ConcentrationTile: UIView {
       self.addSubview(self.imageView)
       let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.tileTapped (_:)))
       self.addGestureRecognizer(gesture)
-      self.backgroundColor = UIColor.darkGray
       self.bounds = self.frame.insetBy(dx: 1.0, dy: 1.0)
       self.layer.cornerRadius = 5.0
+      self.backgroundColor = K.unflippedColor
    }
    
    required init?(coder aDecoder: NSCoder) {
@@ -71,6 +71,7 @@ class ConcentrationTile: UIView {
    //MARK: - Flipping
    func wrongGuessKeepFlipped() {
       self.isShowingWrongGuess = true
+      self.backgroundColor = UIColor.RGBA(r: 200, g: 67, b: 92, a: 0.9)
       DispatchQueue.main.asyncAfter(deadline: .now()+1) {
          if self.isShowingWrongGuess {
             self.unflipTile()
@@ -110,7 +111,7 @@ class ConcentrationTile: UIView {
    func unflipTile() {
       self.transform = CGAffineTransform(scaleX: 1, y: -1)
       self.transform = CGAffineTransform(scaleX: 1, y: 1)
-      self.backgroundColor = UIColor.darkGray
+      self.backgroundColor = K.unflippedColor
       self.flippedNumberLabel.isHidden = true
       self.imageView.isHidden = false
       self.imageView.image = self.unflippedImage

@@ -13,7 +13,7 @@ class RoundedBackgroundView: UIView {
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       self.layer.cornerRadius = 25.0
-      self.backgroundColor = UIColor.init(displayP3Red: 0.95, green: 0.95, blue: 0.95, alpha: 0.9)
+      self.backgroundColor = UIColor.RGBA(r: 242, g: 242, b: 242, a: 0.9)
    }
 
 }

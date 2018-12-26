@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1799BC21D41FE4008BD14F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1799BB21D41FE4008BD14F /* UIColor+.swift */; };
 		3A7899CD21C78DA100D9EF4C /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */; };
 		3A7899CF21C7921B00D9EF4C /* ConcentrationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */; };
 		3A7899D121C89FCA00D9EF4C /* ConcentrationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899D021C89FCA00D9EF4C /* ConcentrationTile.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1799BB21D41FE4008BD14F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
 		3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGridView.swift; sourceTree = "<group>"; };
 		3A7899D021C89FCA00D9EF4C /* ConcentrationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationTile.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				3AC9BE0621C7643100858240 /* Assets.xcassets */,
 				3AC9BE0821C7643100858240 /* LaunchScreen.storyboard */,
 				3AC9BE0B21C7643100858240 /* Info.plist */,
+				3A1799BB21D41FE4008BD14F /* UIColor+.swift */,
 				3A7899E321CA5F6400D9EF4C /* DataManager.swift */,
 				3A7899D821CA398600D9EF4C /* Constants.swift */,
 				3A7899E121CA566200D9EF4C /* Int+.swift */,
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC9BE0221C7643000858240 /* HomeViewController.swift in Sources */,
+				3A1799BC21D41FE4008BD14F /* UIColor+.swift in Sources */,
 				3A7899E421CA5F6400D9EF4C /* DataManager.swift in Sources */,
 				3A7899D921CA398600D9EF4C /* Constants.swift in Sources */,
 				3AC9BE2721C766D700858240 /* GameMainViewController.swift in Sources */,
