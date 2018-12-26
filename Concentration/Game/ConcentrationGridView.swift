@@ -34,6 +34,9 @@ class ConcentrationGridView: UIView, TileDelegate {
          }
          if model.completedTilePairs.contains(pairNum) {
             tiles[i].flipTile()
+            if model.hideCompletedPairs {
+               tiles[i].isHidden = true
+            }
          }
       }
    }
@@ -84,7 +87,11 @@ class ConcentrationGridView: UIView, TileDelegate {
          delegate?.pairGuessed()
          if firstChosenTile?.pairNumber == tile.pairNumber {
             delegate?.pairFound(tile.pairNumber)
-            firstChosenTile = nil
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+               tile.isHidden = true
+               self.firstChosenTile?.isHidden = true
+               self.firstChosenTile = nil
+            }
          } else {
             lockFlipping = true
             secondChosenTile = tile

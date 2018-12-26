@@ -15,7 +15,7 @@
                 <outlet property="customButton" destination="69P-tW-yMg" id="raJ-L9-GeK"/>
                 <outlet property="easyButton" destination="G9a-0z-fRC" id="b2o-aF-DiB"/>
                 <outlet property="hardButton" destination="cnT-Nf-eZQ" id="bdB-LV-iaG"/>
-                <outlet property="hideCompletedTilesSwitch" destination="Plx-Zi-2LE" id="Gxr-zS-zLN"/>
+                <outlet property="hideCompletedPairsSwitch" destination="Plx-Zi-2LE" id="Gxr-zS-zLN"/>
                 <outlet property="mediumButton" destination="LaP-6a-lo5" id="mZB-N9-qQ8"/>
                 <outlet property="numPairsLabel" destination="jC1-Gp-d3o" id="QQt-Jm-YdD"/>
                 <outlet property="numPairsTextField" destination="usH-fV-mgq" id="l3D-rm-h9x"/>
@@ -86,8 +86,8 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Completed Tiles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcI-se-gT3">
-                            <rect key="frame" x="27" y="365.5" width="171" height="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Completed Pairs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcI-se-gT3">
+                            <rect key="frame" x="26.5" y="365.5" width="172" height="24"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

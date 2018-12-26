@@ -14,10 +14,10 @@ struct GameModel:Codable {
    var secondsPassed:Int
    var movesMade:Int
    
-   var hideCompletedTiles:Bool
+   var hideCompletedPairs:Bool
    var useImageTiles:Bool
    
-   init(numPairs:Int, hideCompletedTiles:Bool, useImageTiles:Bool) {
+   init(numPairs:Int, hideCompletedPairs:Bool, useImageTiles:Bool) {
       var tileNumbers = [Int]() //Used for Tile Placements
       for i in 0..<numPairs {
          tileNumbers.append(contentsOf: [i,i])
@@ -29,7 +29,7 @@ struct GameModel:Codable {
       self.secondsPassed = 0
       self.movesMade = 0
       
-      self.hideCompletedTiles = hideCompletedTiles
+      self.hideCompletedPairs = hideCompletedPairs
       self.useImageTiles = useImageTiles
    }
    
