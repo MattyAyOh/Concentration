@@ -86,7 +86,7 @@ class GameSelectViewController: UIViewController, UITextFieldDelegate {
    }
    
    @IBAction func hardPressed(_ sender: Any) {
-      numPairsTextField.text = "25"
+      numPairsTextField.text = "24"
       difficultySelected(hardButton)
    }
    

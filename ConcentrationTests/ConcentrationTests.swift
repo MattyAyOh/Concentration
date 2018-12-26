@@ -11,13 +11,12 @@ import XCTest
 
 class ConcentrationTests: XCTestCase, GridViewDelegate {
    
-   static let numPairs = 25
+   static let numPairs = 24
    var gridView:ConcentrationGridView? = nil
    var backingModel:GameModel? = nil
    
    override func setUp() {
-      tile.isHidden = true
-      firstChosenTile?.isHidden = true      let model = GameModel(numPairs: ConcentrationTests.numPairs, hideCompletedPairs:false, useImageTiles:false)
+      let model = GameModel(numPairs: ConcentrationTests.numPairs, hideCompletedPairs:false, useImageTiles:false)
       backingModel = model
       gridView = ConcentrationGridView.init(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
       gridView?.loadFromModel(model)
@@ -29,7 +28,7 @@ class ConcentrationTests: XCTestCase, GridViewDelegate {
    }
    
    func testTileCount() {
-      XCTAssert(gridView?.tiles.count == 50)
+      XCTAssert(gridView?.tiles.count == ConcentrationTests.numPairs*2)
    }
    
    func testPlaythrough() {
