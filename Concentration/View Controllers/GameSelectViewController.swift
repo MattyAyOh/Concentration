@@ -32,6 +32,28 @@ class GameSelectViewController: UIViewController, UITextFieldDelegate {
       numPairsTextField.isHidden = true
    }
    
+   func toggleSettingsState(isEnabled:Bool) {
+      useImageTileSwitch.isEnabled = isEnabled
+      hideCompletedPairsSwitch.isEnabled = isEnabled
+      easyButton.isEnabled = isEnabled
+      mediumButton.isEnabled = isEnabled
+      hardButton.isEnabled = isEnabled
+      customButton.isEnabled = isEnabled
+   }
+   
+   @IBAction func casualCompetitiveModeToggled(_ sender: UISegmentedControl) {
+      if sender.selectedSegmentIndex == 1 { // Competitive
+         useImageTileSwitch.isOn = false
+         hideCompletedPairsSwitch.isOn = true
+         hardPressed(self)
+         toggleSettingsState(isEnabled: false)
+      } else { //Casual
+         useImageTileSwitch.isOn = true
+         hideCompletedPairsSwitch.isOn = false
+         toggleSettingsState(isEnabled: true)
+      }
+   }
+   
    func difficultySelected(_ button:UIButton) {
       for btn in allDifficultyButtons {
          btn?.isSelected = false
