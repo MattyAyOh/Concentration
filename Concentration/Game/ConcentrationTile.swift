@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TileDelegate: NSObjectProtocol {
-   var showingWrongGuess:Bool {get set}
    func tileFlipped(_ tile:ConcentrationTile)
    func resetGuessedTiles()
 }
@@ -24,6 +23,7 @@ class ConcentrationTile: UIView {
    let unflippedImage = UIImage(imageLiteralResourceName: "Question")
    
    var isAnimating:Bool = false
+   var isShowingWrongGuess:Bool = false
    
    override convenience init(frame: CGRect) {
       self.init(frame:frame, pairNumber: 0, image: nil)
@@ -69,11 +69,18 @@ class ConcentrationTile: UIView {
    }
    
    //MARK: - Flipping
+   func wrongGuessKeepFlipped() {
+      self.isShowingWrongGuess = true
+      DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+         if self.isShowingWrongGuess {
+            self.unflipTile()
+         }
+      }
+   }
    
    @objc func tileTapped(_ sender:UITapGestureRecognizer) {
-      if self.delegate?.showingWrongGuess == true {
-         delegate?.resetGuessedTiles()
-      } else if !self.flipped && !self.isAnimating {
+      delegate?.resetGuessedTiles()
+      if !self.flipped && !self.isAnimating {
          isAnimating = true
          UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.flipTileAndNotify()
@@ -108,5 +115,6 @@ class ConcentrationTile: UIView {
       self.imageView.isHidden = false
       self.imageView.image = self.unflippedImage
       self.flipped = false
+      self.isShowingWrongGuess = false
    }
 }

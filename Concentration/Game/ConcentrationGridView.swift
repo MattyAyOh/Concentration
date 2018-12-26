@@ -16,9 +16,6 @@ protocol GridViewDelegate: NSObjectProtocol {
 class ConcentrationGridView: UIView, TileDelegate {
    var tiles: [ConcentrationTile] = []
    var firstChosenTile:ConcentrationTile?
-   var secondChosenTile:ConcentrationTile?
-   
-   var showingWrongGuess = false
    
    weak var delegate:GridViewDelegate?
    
@@ -93,23 +90,18 @@ class ConcentrationGridView: UIView, TileDelegate {
                self.firstChosenTile = nil
             }
          } else {
-            showingWrongGuess = true
-            secondChosenTile = tile
-            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-               if self.showingWrongGuess {
-                  self.resetGuessedTiles()
-               }
-            }
+            tile.wrongGuessKeepFlipped()
+            firstChosenTile?.wrongGuessKeepFlipped()
+            self.firstChosenTile = nil
          }
          
       }
    }
    
    func resetGuessedTiles() {
-      self.firstChosenTile?.unflipTile()
-      self.firstChosenTile = nil
-      self.secondChosenTile?.unflipTile()
-      self.secondChosenTile = nil
-      self.showingWrongGuess = false
+      let wrongTiles = tiles.filter{$0.isShowingWrongGuess}
+      for tile in wrongTiles {
+         tile.unflipTile()
+      }
    }
 }
