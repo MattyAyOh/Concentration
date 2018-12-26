@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMu-Lf-NGV" customClass="ConcentrationGridView" customModule="Concentration" customModuleProvider="target">
-                    <rect key="frame" x="20" y="99" width="335" height="548"/>
+                    <rect key="frame" x="0.0" y="99" width="375" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8j-4L-ofM">
@@ -66,14 +66,14 @@
                 <constraint firstItem="40K-gh-wJu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="F3V-6G-Gu6"/>
                 <constraint firstItem="Y8j-4L-ofM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="F81-VV-xWn"/>
                 <constraint firstItem="rMu-Lf-NGV" firstAttribute="top" secondItem="Bll-9Q-4Ue" secondAttribute="bottom" constant="16" id="FH6-5b-M3p"/>
-                <constraint firstItem="rMu-Lf-NGV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Gxs-Lf-vXC"/>
+                <constraint firstItem="rMu-Lf-NGV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gxs-Lf-vXC"/>
                 <constraint firstItem="Bll-9Q-4Ue" firstAttribute="top" secondItem="ZvP-z8-Ufp" secondAttribute="bottom" constant="8" id="Td8-zc-aZ6"/>
                 <constraint firstItem="Bll-9Q-4Ue" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aAc-FL-LoM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rMu-Lf-NGV" secondAttribute="trailing" constant="20" id="gDp-eR-3id"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rMu-Lf-NGV" secondAttribute="trailing" id="gDp-eR-3id"/>
                 <constraint firstItem="Y8j-4L-ofM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ne2-tJ-FHW"/>
                 <constraint firstItem="ZvP-z8-Ufp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="pFH-3o-d5S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="40K-gh-wJu" secondAttribute="trailing" id="rEw-eV-18d"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rMu-Lf-NGV" secondAttribute="bottom" constant="20" id="tCG-hs-lIF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rMu-Lf-NGV" secondAttribute="bottom" id="tCG-hs-lIF"/>
                 <constraint firstItem="BP0-Zb-cVG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ukZ-q0-bwM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
