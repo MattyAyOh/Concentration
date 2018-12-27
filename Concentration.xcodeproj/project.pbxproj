@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A1799BC21D41FE4008BD14F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1799BB21D41FE4008BD14F /* UIColor+.swift */; };
+		3A1799BE21D4D77B008BD14F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1799BD21D4D77B008BD14F /* UIImageView+.swift */; };
 		3A7899CD21C78DA100D9EF4C /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */; };
 		3A7899CF21C7921B00D9EF4C /* ConcentrationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */; };
 		3A7899D121C89FCA00D9EF4C /* ConcentrationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7899D021C89FCA00D9EF4C /* ConcentrationTile.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		3A1799BB21D41FE4008BD14F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		3A1799BD21D4D77B008BD14F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		3A7899CC21C78DA100D9EF4C /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
 		3A7899CE21C7921B00D9EF4C /* ConcentrationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGridView.swift; sourceTree = "<group>"; };
 		3A7899D021C89FCA00D9EF4C /* ConcentrationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationTile.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				3A7899E321CA5F6400D9EF4C /* DataManager.swift */,
 				3A7899D821CA398600D9EF4C /* Constants.swift */,
 				3A7899E121CA566200D9EF4C /* Int+.swift */,
+				3A1799BD21D4D77B008BD14F /* UIImageView+.swift */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				3A7899D921CA398600D9EF4C /* Constants.swift in Sources */,
 				3AC9BE2721C766D700858240 /* GameMainViewController.swift in Sources */,
 				3AC9BE0021C7643000858240 /* AppDelegate.swift in Sources */,
+				3A1799BE21D4D77B008BD14F /* UIImageView+.swift in Sources */,
 				3AC9BE2B21C7697300858240 /* HistoryViewController.swift in Sources */,
 				3A7899D321C8C7CF00D9EF4C /* GameModel.swift in Sources */,
 				3A7899DD21CA4A6000D9EF4C /* HistoryManager.swift in Sources */,

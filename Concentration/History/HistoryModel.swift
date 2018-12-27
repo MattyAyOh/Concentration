@@ -16,7 +16,7 @@ struct HistoryModel: Codable {
    
    init(dateCompleted:Date, timePassed:Int, movesMade:Int, totalPairs:Int) {
       let formatter = DateFormatter()
-      formatter.dateFormat = "dd-MMM-yyyy"
+      formatter.dateFormat = "MMM dd, yyyy (HH:mm)"
       self.dateCompleted = formatter.string(from: dateCompleted)
       
       self.movesMade = movesMade

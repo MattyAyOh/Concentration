@@ -10,9 +10,9 @@ import UIKit
 
 struct K {
    static let defaultNumPairs = 10
-   static let unflippedColor = UIColor.RGBA(r: 94, g: 144, b: 240, a: 0.9)
-   static let wrongGuessColor = UIColor.RGBA(r: 200, g: 67, b: 92, a: 0.9)
-   static let correctGuessColor = UIColor.RGBA(r: 90, g: 220, b: 90, a: 0.9)
+   static let unflippedColor = UIColor.RGBA(r: 38, g: 91, b: 191, a: 0.9)
+   static let wrongGuessColor = UIColor.RGBA(r: 191, g: 56, b: 43, a: 0.9)
+   static let correctGuessColor = UIColor.RGBA(r: 84, g: 191, b: 148, a: 0.9)
    static let pairNumToImage: [Int:UIImage?] = [
       0:UIImage(imageLiteralResourceName: "Aim"),
       1:UIImage(imageLiteralResourceName: "AirBalloon"),

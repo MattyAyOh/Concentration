@@ -90,6 +90,8 @@ class ConcentrationGridView: UIView, TileDelegate {
             delegate?.pairFound(tile.pairNumber)
             let firstTile = self.firstChosenTile
             if hideCompletedPairs {
+               tile.backgroundColor = K.correctGuessColor
+               firstTile?.backgroundColor = K.correctGuessColor
                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                   tile.isHidden = true
                   firstTile?.isHidden = true

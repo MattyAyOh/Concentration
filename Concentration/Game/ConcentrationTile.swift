@@ -48,6 +48,7 @@ class ConcentrationTile: UIView {
       
       self.imageView = UIImageView(frame: frame.insetBy(dx: 3.0, dy: 3.0))
       self.imageView.image = self.unflippedImage
+      self.imageView.setImageColor(color: UIColor.white)
       super.init(frame: frame)
       self.addSubview(self.flippedNumberLabel)
       self.addSubview(self.imageView)
@@ -71,7 +72,7 @@ class ConcentrationTile: UIView {
    //MARK: - Flipping
    func wrongGuessKeepFlipped() {
       self.isShowingWrongGuess = true
-      self.backgroundColor = UIColor.RGBA(r: 200, g: 67, b: 92, a: 0.9)
+      self.backgroundColor = K.wrongGuessColor
       DispatchQueue.main.asyncAfter(deadline: .now()+1) {
          if self.isShowingWrongGuess {
             self.unflipTile()
@@ -115,6 +116,7 @@ class ConcentrationTile: UIView {
       self.flippedNumberLabel.isHidden = true
       self.imageView.isHidden = false
       self.imageView.image = self.unflippedImage
+      self.imageView.setImageColor(color: UIColor.white)
       self.flipped = false
       self.isShowingWrongGuess = false
    }
